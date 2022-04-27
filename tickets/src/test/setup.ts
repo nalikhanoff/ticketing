@@ -32,7 +32,7 @@ afterAll(async () => {
 
 global.signin = () => {
   const payload = {
-    id: 'asdsd',
+    id: new mongoose.Types.ObjectId().toHexString(),
     email: 'test@test.com',
   };
 
