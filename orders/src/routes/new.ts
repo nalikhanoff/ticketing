@@ -27,7 +27,7 @@ router.post(
     if (!ticket) throw new NotFoundError();
 
     const isReserved = await ticket.isReserved();
-    if (!isReserved) throw new BadRequestError('Ticket is already reserved');
+    if (isReserved) throw new BadRequestError('Ticket is already reserved');
 
     const expiration = new Date();
     expiration.setSeconds(expiration.getSeconds() + EXPIRATION_WINDOW_SECONDS);
